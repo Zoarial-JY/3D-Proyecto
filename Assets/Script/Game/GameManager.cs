@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        bestScore= PlayerPrefs.GetInt("BestScore");
+        bestScore = PlayerPrefs.GetInt("BestScore");
     }
 
     public void NextLevel()
@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     }
     public void RestarLevel()
     {
-
+        Debug.Log("Restart");
+        singleton.currentScore = 0;
+        FindAnyObjectByType<BallController>().ResetBall();
     }
 
     public void AddScore(int scoreToAdd)
